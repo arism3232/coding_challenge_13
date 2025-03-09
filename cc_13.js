@@ -20,6 +20,29 @@ function addEmployeeCard(name, position) {
         event.stopPropagation
         card.remove();
     });
+    // Task5- Inline Editing of Employee Details
+    editButton.addEventListener('click', function() {
+        const nameInput = document.createElement('input');
+        nameInput.value = heading.textContent;
+        const positionInput = document.createElement('input');
+        positionInput.value = paragraph.textContent;
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save';
+        card.innerHTML = '';
+        card.appendChild(nameInput);
+        card.appendChild(position);
+        card.appendChild(saveButton);
+        card.appendChild(removeButton);
+        saveButton.addEventListener('click', function() {
+            heading.textContent = nameInput.value;
+            paragraph.textContent = positionInput.value;
+            card.innerHTML = '';
+            card.appendChild(heading);
+            card.appendChild(paragraph);
+            card.appendChild(editButton);
+            card.appendChild(removeButton);
+        });
+    });
 };
 addEmployeeCard('Ed', 'Tester');
 addEmployeeCard('Edd', 'Diagnostics');
