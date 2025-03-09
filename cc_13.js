@@ -12,7 +12,12 @@ function addEmployeeCard(name, position) {
     card.appendChild(paragraph);
     card.appendChild(removeButton);
     document.getElementById('employeeContainer').appendChild(card);
-    removeButton.addEventListener('click', function() {
+    removeButton.addEventListener('click', function(event) {
+        // Task4- Implementing Removal of Employee Cards with Event Bubbling
+        if (event.target.className === 'employee-card') {
+            console.log('Employee Card has been selected')
+        }
+        event.stopPropagation
         card.remove();
     });
 };
