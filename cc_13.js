@@ -8,8 +8,11 @@ function addEmployeeCard(name, position) {
     paragraph.textContent = position;
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
+    const editButton = document.createElement('button');
+    editButton.textContent = 'Edit';
     card.appendChild(heading);
     card.appendChild(paragraph);
+    card.appendChild(editButton);
     card.appendChild(removeButton);
     document.getElementById('employeeContainer').appendChild(card);
     removeButton.addEventListener('click', function(event) {
